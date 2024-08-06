@@ -16,7 +16,7 @@ connectDB(mongoUrl, dbName);
 app.use(express.json());
 
 // Router
-app.use("/url", urlRouter);
+app.use("/", urlRouter);
 
 
 app.listen(PORT, () => console.log(`Listening on port ${PORT}`));
