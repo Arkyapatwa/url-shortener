@@ -1,5 +1,5 @@
 const Url = require('../models/url');
-const { customAlphabet } = require('nanoid')
+const { customRandom, urlAlphabet, random } = require('nanoid')
 
 async function handleShortenUrl(req, res) {
     const { originalUrl } = req.body;
@@ -10,8 +10,15 @@ async function handleShortenUrl(req, res) {
         })
     }
     // create shorten url
-    const nanoid = customAlphabet(originalUrl, 8)
-    const shortUrlId = nanoid();
+    const nanoid = customRandom(urlAlphabet, 8, random)
+    let shortUrlId = nanoid();
+
+    // check if short url already exists
+    let event = await Url.findOne({ shortUrlId: shortUrlId });
+    while (event) {
+        shortUrlId = nanoid();
+        event = await Url.findOne({ shortUrlId: shortUrlId });
+    }
 
     const url = new Url({
         originalUrl: originalUrl,
