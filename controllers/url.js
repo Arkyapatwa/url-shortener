@@ -29,10 +29,7 @@ async function handleShortenUrl(req, res) {
     })
     await url.save();
 
-    return res.status(200).json({
-        success: true,
-        shortUrlId: shortUrlId
-    })
+    return res.render('home', { id: shortUrlId })
 }
 
 async function handleVisitUrl(req, res) {

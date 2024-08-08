@@ -1,0 +1,8 @@
+const express = require('express');
+const { getHomepage } = require('../controllers/static')
+const router = express.Router();
+
+
+router.route("/").get(getHomepage)
+
+module.exports = router
