@@ -6,6 +6,7 @@ require('dotenv').config();
 const app = express();
 const urlRouter = require('./routes/url');
 const staticRouter = require('./routes/staticRouter');
+const userRouter =  require('./routes/user');
 
 const PORT = process.env.PORT || 3000;
 const dbName = process.env.DATABASE_NAME;
@@ -24,6 +25,7 @@ app.set("views", path.resolve("./views"));
 // Router
 app.use("/", urlRouter);
 app.use("/", staticRouter);
+app.use("/", userRouter);
 
 
 app.listen(PORT, () => console.log(`Listening on port ${PORT}`));

@@ -28,8 +28,8 @@ async function handleShortenUrl(req, res) {
         }
     })
     await url.save();
-
-    return res.render('home', { id: shortUrlId })
+    const urls = await Url.find({});
+    return res.render('home', { urls: urls });
 }
 
 async function handleVisitUrl(req, res) {
