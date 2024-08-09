@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Login</title>
+  </head>
+  <body>
+    <h1>Login</h1>
+    <form action="/login" method="post">
+      <div
+        style="display: flex; flex-direction: column; gap: 15px; margin: 15px"
+      >
+        <div style="display: flex; gap: 20px">
+          <label for="email">Email:</label>
+          <input type="email" id="email" name="email" />
+        </div>
+        <div style="display: flex; gap: 20px">
+          <label for="password">Password:</label>
+          <input type="password" id="password" name="password" />
+        </div>
+        <button type="submit" style="width: fit-content">Login</button>
+      </div>
+      <div style="display: flex; gap: 15px; margin: 15px">
+        Don't Have an account? <a href="/user/signup">Signup</a>
+      </div>
+    </form>
+  </body>
+</html>

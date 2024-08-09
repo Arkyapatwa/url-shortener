@@ -1,8 +1,16 @@
-const Url= require("../models/url");
+const Url = require("../models/url");
 
 async function getHomepage(req, res) {
   const urls = await Url.find({});
   return res.render("home", { urls: urls });
 }
 
-module.exports = { getHomepage }
+async function getLoginPage(req, res) {
+  return res.render("login");
+}
+
+async function getSignupPage(req, res) {
+  return res.render("signup");
+}
+
+module.exports = { getHomepage, getLoginPage, getSignupPage };

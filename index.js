@@ -24,7 +24,7 @@ app.set("views", path.resolve("./views"));
 
 // Router
 app.use("/", urlRouter);
-app.use("/", staticRouter);
+app.use("/user", staticRouter);
 app.use("/", userRouter);
 
 
