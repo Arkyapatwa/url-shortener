@@ -3,6 +3,6 @@ const router = express.Router();
 
 const { handleRegister } = require('../controllers/user')
 
-router.route("/user").post(handleRegister)
+router.route("/registerUser").post(handleRegister)
 
 module.exports = router

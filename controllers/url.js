@@ -28,8 +28,8 @@ async function handleShortenUrl(req, res) {
         }
     })
     await url.save();
-    const urls = await Url.find({});
-    return res.render('home', { urls: urls });
+    
+    return res.render('home', { message: 'Url shortened successfully', urls: await Url.find({}) });
 }
 
 async function handleVisitUrl(req, res) {

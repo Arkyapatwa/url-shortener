@@ -15,10 +15,8 @@ async function handleRegister(req, res) {
     password,
   });
   await user.save();
-  return res.status(200).json({
-    success: true,
-    message: "User created successfully",
-  });
+
+  return res.render("login", {message: "Registered Successfully"});
 }
 
 module.exports = { handleRegister };
