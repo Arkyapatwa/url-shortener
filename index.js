@@ -1,6 +1,8 @@
 const express = require('express');
 const { connectDB } = require("./connection");
+const cookieParser = require('cookie-parser');
 const path = require('path');
+const { restrictToLoginUsersOnly } = require('./middlewares/auth');
 require('dotenv').config();
 
 const app = express();
@@ -18,12 +20,14 @@ connectDB(mongoUrl, dbName);
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
+app.use(cookieParser());
 
 app.set("view engine", "ejs");
 app.set("views", path.resolve("./views"));
 
+
 // Router
-app.use("/", urlRouter);
+app.use("/", restrictToLoginUsersOnly, urlRouter);
 app.use("/user", staticRouter);
 app.use("/", userRouter);
 
