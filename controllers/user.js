@@ -45,7 +45,7 @@ async function handleLogin(req, res) {
 
   const token = setUser(user);
   res.cookie("session", token)
-  return res.redirect("/user/home");
+  return res.redirect("/home");
 }
 
 module.exports = { handleRegister, handleLogin };

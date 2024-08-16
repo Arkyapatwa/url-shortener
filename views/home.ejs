@@ -13,7 +13,7 @@
       <% if (typeof message !== 'undefined' && message) { %>
       <div class="alert alert-success"><%= message %></div>
       <% } %>
-      <form method="post" action="/url">
+      <form method="post" action="/url/create">
         <input
           type="text"
           id="url"
@@ -26,7 +26,7 @@
         <% if (typeof urls !== 'undefined' && urls) { %> <%
         urls.forEach(element => { %>
         <span>
-          <a href="/<%= element.shortUrlId %>" target="_blank"
+          <a href="/url/<%= element.shortUrlId %>" target="_blank"
             ><%= element.shortUrlId %></a
           >
           <%= element.originalUrl %> <strong>Clicks: </strong> <%=

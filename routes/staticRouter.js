@@ -1,5 +1,6 @@
 const express = require('express');
 const { getHomepage, getLoginPage, getSignupPage } = require('../controllers/static')
+
 const router = express.Router();
 
 

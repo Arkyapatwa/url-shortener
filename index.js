@@ -27,9 +27,9 @@ app.set("views", path.resolve("./views"));
 
 
 // Router
-app.use("/", restrictToLoginUsersOnly, urlRouter);
-app.use("/user", staticRouter);
-app.use("/", userRouter);
+app.use("/url", restrictToLoginUsersOnly, urlRouter);
+app.use("/", staticRouter);
+app.use("/user", userRouter);
 
 
 app.listen(PORT, () => console.log(`Listening on port ${PORT}`));
