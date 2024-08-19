@@ -48,4 +48,12 @@ async function handleLogin(req, res) {
   return res.redirect("/home");
 }
 
-module.exports = { handleRegister, handleLogin };
+async function handleLogout(req, res) {
+  if (!req.cookies?.session) {
+    return res.redirect("/login");
+  }
+  res.clearCookie("session");
+  return res.redirect("/login");
+}
+
+module.exports = { handleRegister, handleLogin, handleLogout };
