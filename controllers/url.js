@@ -25,11 +25,12 @@ async function handleShortenUrl(req, res) {
         shortUrlId: shortUrlId,
         analytics: {
             visitHistory: []
-        }
+        },
+        createdBy: req.user._id
     })
     await url.save();
     
-    return res.render('home', { message: 'Url shortened successfully', urls: await Url.find({}) });
+    return res.render('home', { message: 'Url shortened successfully', urls: await Url.find({createdBy: req.user._id}) });
 }
 
 async function handleVisitUrl(req, res) {

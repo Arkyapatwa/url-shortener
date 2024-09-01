@@ -1,7 +1,7 @@
 const Url = require("../models/url");
 
 async function getHomepage(req, res) {
-  const urls = await Url.find({});
+  const urls = await Url.find({createdBy: req.user._id});
   return res.render("home", { urls: urls });
 }
 

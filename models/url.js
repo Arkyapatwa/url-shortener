@@ -15,6 +15,10 @@ const urlSchema = new mongoose.Schema({
             accessedAt: Date,
             ip: String
         }]
+    },
+    createdBy: {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'user'
     }
 });
 
