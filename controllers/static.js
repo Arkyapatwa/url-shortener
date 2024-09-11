@@ -5,6 +5,11 @@ async function getHomepage(req, res) {
   return res.render("home", { urls: urls });
 }
 
+async function getAdminHomepage(req, res) {
+  const urls = await Url.find({});
+  return res.render("home", { urls: urls });
+}
+
 async function getLoginPage(req, res) {
   return res.render("login");
 }
@@ -13,4 +18,4 @@ async function getSignupPage(req, res) {
   return res.render("signup");
 }
 
-module.exports = { getHomepage, getLoginPage, getSignupPage };
+module.exports = { getHomepage, getAdminHomepage, getLoginPage, getSignupPage };
